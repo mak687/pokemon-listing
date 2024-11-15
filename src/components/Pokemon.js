@@ -1,5 +1,6 @@
 
 import React,{useEffect, useState} from 'react'
+import Pokemoncard from './Pokemoncard'
 
 function Pokemon(){
 
@@ -35,9 +36,6 @@ function Pokemon(){
     return <div>No Pokemon data available.</div>;
   }
 
-
-  const { name, sprites, moves } = pokemonData;
-
   const handleChange = (e) =>{
     setpokemonId(e.target.value)
   }
@@ -70,26 +68,7 @@ function Pokemon(){
 
         !errMsg?
             !loading  ?
-            <div className="Pokemon-card">
-                <h1>Pokemon: {name}</h1>
-                <div className="pokemon-info">
-                    <div className="sprites">
-                    <h2>Sprites</h2>
-                    <img src={sprites.front_default} alt={`${name} front`} />
-                    <img src={sprites.back_default} alt={`${name} back`} />
-                    <img src={sprites.front_shiny} alt={`${name} shiny front`} />
-                    </div>
-
-                    <div className="moves">
-                    <h2>Moves</h2>
-                    <ul>
-                        {moves.slice(0, 3).map((move) => (
-                        <li key={move.move.name}>{move.move.name}</li>
-                        ))}
-                    </ul>
-                    </div>
-                </div>
-            </div> : 
+            <div className="App"><Pokemoncard pokemon={pokemonData} /></div> : 
              <div className="App">Loading...</div>
         : null
    } 
