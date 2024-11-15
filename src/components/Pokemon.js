@@ -11,7 +11,6 @@ function Pokemon(){
   const fetchPokemonData = async () => {
     try {
       setLoading(true);
-      // Fetch data from the PokéAPI
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
       if(!response.ok){
           throw new Error ('Failed to get Data')

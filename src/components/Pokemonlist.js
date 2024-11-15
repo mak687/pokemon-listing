@@ -16,7 +16,6 @@ function Pokemonlist(){
   
     const fetchPokemonData = async () => {
         try {
-          // Fetch data from the PokéAPI
           const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
           if(!response.ok){
               throw new Error ('Failed to get Data')
@@ -37,7 +36,6 @@ function Pokemonlist(){
     
       const handleSelectPokemon = async (url) => {
         setLoading('Loading...')
-        // Fetch detailed data for the selected Pokémon
         const response = await fetch(url);
         if(!response.ok){
             throw new Error ('Failed to get Data')
