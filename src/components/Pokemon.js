@@ -1,6 +1,7 @@
 
 import React,{useEffect, useState} from 'react'
 import Pokemoncard from './Pokemoncard'
+import Button from 'react-bootstrap/Button';
 
 function Pokemon(){
 
@@ -57,7 +58,7 @@ function Pokemon(){
             <input type="text" value={pokemonId} onChange={handleChange}/>
         </div>
         <div className="div-region">
-            <button onClick={getPokemonInfo} className="button">Get Info</button>
+            <Button variant="primary" onClick={getPokemonInfo} >Get Info</Button>
         </div>
         <div className="err-region">
           {errMsg}
@@ -68,7 +69,10 @@ function Pokemon(){
 
         !errMsg?
             !loading  ?
-            <div className="App"><Pokemoncard pokemon={pokemonData} /></div> : 
+            <div className="App">
+                <h3>{pokemonData.name}</h3>
+                <Pokemoncard pokemon={pokemonData} />
+              </div> : 
              <div className="App">Loading...</div>
         : null
    } 
